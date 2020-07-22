@@ -22,23 +22,53 @@
                 <h1>Is your flight going to be delayed?</h1>
                 <p>Enter your details below!</p>
             </div>
+        </div>
 
 
-            <div class="container">
-                <div class="row">
-                <div class="col-md-3">
-                    <div class="well">
-                    <h5>Airlines</h5>
-                    <select id="dropdown1" onchange="optionChanged(this.value)">   </select>
+        <div class="container">
+            <div class="row">
+                   
+                        <div class="col-xs-6">
+                            <h5>Airlines</h5>
+                            <select id="dropdown1" onchange="optionChanged(this.value)">   </select>
+                        </div>
+                        <div class="col-xs-6">
+                            <h5>Destination Airports</h5>
+                            <select id="dropdown2">   </select>
+                        </div>
                     </div>
+            </div>
+        <div>
+        
+        <br>
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <form method="POST" action="/" role="form", name="donationform">
+                        <div class="form-group">
+                            <label>Year</label>
+                            <input type="text" class="form-control" name="Year" placeholder="2017">
+                        </div>
+                        <div class="form-group">
+                            <label>Month</label>
+                            <input type="text" class="form-control" name="Month" placeholder="10">
+                        </div>
+                        <div class="form-group">
+                            <label>Delay</label>
+                            <input type="text" class="form-control" name="Delay" placeholder="Not sure">
+                        </div>
+                        <input type="submit" value="submit" class="btn btn-default">
+                    </form>
                 </div>
-                <div class="col-md-3"> 
-                    <div class="well">
-                    <h5>Destination Airports</h5>
-                    <select id="dropdown2">   </select>
-                </div>
-                
-                </div>
+            </div>
+        </div>
+
+
+
+
+
 
 
 

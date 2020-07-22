@@ -25,7 +25,7 @@ function onlyUnique(value, index, self) {
   
   function initial1(){ 
 
-    d3.csv("Project_3/data.csv").then((data)=>{
+    d3.csv("data.csv").then((data)=>{
         console.log(data)
         var airlines = data.map(item=>item.Airline).filter( onlyUnique ); 
         var dropDown1 = d3.select("#dropdown1");
