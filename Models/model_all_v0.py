@@ -1,31 +1,23 @@
-### DEPENDENCIES ###
 import numpy as np
 import pandas as pd
-import math
-from tpot import TPOTClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import f1_score, accuracy_score
+from sklearn.naive_bayes import GaussianNB, MultinomialNB
+from sklearn.pipeline import make_pipeline, make_union
+from tpot.builtins import StackingEstimator
 
-# load dataset
-df = pd.read_csv("data.csv")
-df.head(10)
+# NOTE: Make sure that the outcome column is labeled 'target' in the data file
+tpot_data = pd.read_csv('precise.csv.csv')
+features = tpot_data.drop('Flight_Status', axis=1)
+training_features, testing_features, training_target, testing_target = \
+            train_test_split(features, tpot_data['Flight_Status'], random_state=None)
 
-# # build X and y matrices
-# X = df.drop(['whether he/she donated blood in March 2007'], axis=1)
-# y = df[['whether he/she donated blood in March 2007']].values.reshape(-1)
+# Average CV score on the training set was: 0.538890917697978
+exported_pipeline = make_pipeline(
+    StackingEstimator(estimator=ExtraTreesClassifier(bootstrap=True, criterion="entropy", max_features=0.7500000000000001, min_samples_leaf=4, min_samples_split=5, n_estimators=100)),
+    StackingEstimator(estimator=MultinomialNB(alpha=0.1, fit_prior=True)),
+    GaussianNB()
+)
 
-# # split to training and testing sets
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1, stratify=y)
-
-# # call TPOT and wait
-# tpot_clf = TPOTClassifier(generations=5, population_size=50, verbosity=2, n_jobs=-1,
-#     max_time_mins=2, scoring='f1')
-# tpot_clf.fit(X_train, y_train)
-
-# # evaluate result
-# y_hat_test = tpot_clf.predict(X_test)
-# print(f'F1: {f1_score(y_test, y_hat_test)}')
-# print(f'Acc: {accuracy_score(y_test, y_hat_test)}')
-
-# # export model into python code
-# tpot_clf.export('tpot_model.py')
+exported_pipeline.fit(training_features, training_target)
+results = exported_pipeline.predict(testing_features)

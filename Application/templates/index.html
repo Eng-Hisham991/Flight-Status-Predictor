@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Airlines Flight Delay and Cancellattions</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/lux/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <style>
+    body {
+      background-image: url('https://images.wallpaperscraft.com/image/aircraft_wing_clouds_flight_135946_1280x720.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <div class="container text-center">
+    <a class="navbar-brand logo" > 
+      <span class="nav-color">Airlines Flight Delays </span></a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav"> 
+      
+      </ul>
+    </div>
+  </nav>
+    <body>
+        <div class="container">
+            <div class="jumbotron" style="text-align: center">
+                <h1>Is your flight going to be delayed?</h1>
+                <p>Enter your details below!</p>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <form method="POST" action="/" role="form", name="AIRLINEform">
+                        <div class="form-group">
+                            <!-- <input type="text" class="form-control" name="AIRLINEx" placeholder="DELTA"> -->
+                            <label>Airline</label>
+                            <select id="selDataset" name="AIRLINE">
+                                {% for line in lines %}!
+                                <option value="{{ line }}">{{ line }}</option> 
+                                {% endfor %}
+                              </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- <input type="text" class="form-control" name="DEST_AIRPORTx" placeholder="JFK"> -->
+                            <label>Dest. Airport</label>
+                            <select id="selDataset1" name="Dest. Airport">
+                                {% for cat in cats %}
+                                <option value="{{ cat }}">{{ cat }}</option> 
+                                {% endfor %}
+                              </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Delay (Minutes)</label>
+                            <input type="text" class="form-control" name="Delays" placeholder="55">
+                        </div>
+                        <div class="form-group">
+                            <label>Month</label>
+                            <input type="text" class="form-control" name="MONTH" placeholder="01">
+                        </div>
+                        <div  class="form-group">
+                            <label>Year</label>
+                            <input type="text" class="form-control" name="YEAR" placeholder="2017">
+                        </div>
+                        <input type="submit" value="submit" class="btn btn-default">
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <h1>{{ message }}</h1>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script type = "text/javascript"  src="{{ url_for('static', filename = 'js/Final.js') }}"></script>
+    </body>
+</html>
