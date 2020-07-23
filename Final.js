@@ -25,7 +25,7 @@ function onlyUnique(value, index, self) {
   
   function initial1(){ 
 
-    d3.csv("data.csv").then((data)=>{
+    d3.csv("Data/data.csv").then((data)=>{
         console.log(data)
         var airlines = data.map(item=>item.Airline).filter( onlyUnique ); 
         var dropDown1 = d3.select("#dropdown1");
@@ -40,7 +40,7 @@ function onlyUnique(value, index, self) {
 
         });
         
-        var dest_airports = data.map(item=>item.Destination_Airport).filter( onlyUnique ); 
+        var dest_airports = data.map(item=>item.DEST_AIRPORT).filter( onlyUnique ); 
         var dropDown2 = d3.select("#dropdown2");
 
         dest_airports.forEach((sample) => {
