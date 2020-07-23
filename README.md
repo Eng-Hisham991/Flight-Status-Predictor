@@ -5,6 +5,17 @@
 
 ## Background 
 
-How many flights are delayed/cancelled each year? We built a classifier using machine learning techniques that predicts whether your flight will be delayed or normal based on the airline, the destination city, the delay, the month, and the year. 
+How many flights are delayed/cancelled each year? We built a classifier using machine learning techniques that predicts whether your flight will be delayed or normal based on the airline, the destination city, the delay, the month, and the year leaving IAH in houston. 
+
+## Model Details 
+
+## Visualizations 
+
+The visualizations were done on tableau, posted on tableau public, and incorporated into the HTML. 
+
+## Flask App 
+
+The Flask app is in direct communication with model/javascript/HTML to predict the outcome based on the user input into the website. 
+
 
 
