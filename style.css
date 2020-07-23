@@ -1,0 +1,12 @@
+
+  body {
+    background-image: url("images/image.jpeg");
+  } 
+
+  h5 {
+    color: white;
+  }
+
+  #jumbotron{ 
+    background-color: cyan;
+  }

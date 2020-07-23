@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Airlines Flight Delay and Cancellattions</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Airlines Flight Status</title>
 </head>
 
 
@@ -17,9 +18,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <body>
-        <div class="container">
-            <div class="jumbotron" style="text-align: center">
-                <h1>Is your flight going to be delayed?</h1>
+        <div class="container" id = "Head">
+            <div class="jumbotron" style= "text-align: center;background-color: snow">
+                <h1 style = "font-size: 30px">Is your flight going to be delayed?</h1>
                 <p>Enter your details below!</p>
             </div>
         </div>
@@ -28,12 +29,12 @@
         <div class="container">
             <div class="row">
                    
-                        <div class="col-xs-6">
-                            <h5>Airlines</h5>
+                        <div class="col-xs-7">
+                            <h5 style = "color: white">Airlines</h5>
                             <select id="dropdown1" onchange="optionChanged(this.value)">   </select>
                         </div>
-                        <div class="col-xs-6">
-                            <h5>Destination Airports</h5>
+                        <div class="col-xs-7">
+                            <h5 style = "color: white">Destination Airports</h5>
                             <select id="dropdown2">   </select>
                         </div>
                     </div>
@@ -43,21 +44,21 @@
         <br>
         
 
-        <div class="container">
+        <!-- <div class="container"> -->
             <div class="row">
-                <div class="col-md-offset-2 col-md-8">
+                <div class="col-md-offset-2 col-md-6" style = "margin-left: 150px">
                     <form method="POST" action="/" role="form", name="donationform">
                         <div class="form-group">
-                            <label>Year</label>
+                            <label style = "color: white">Year</label>
                             <input type="text" class="form-control" name="Year" placeholder="2017">
                         </div>
                         <div class="form-group">
-                            <label>Month</label>
+                            <label style = "color: white">Month</label>
                             <input type="text" class="form-control" name="Month" placeholder="10">
                         </div>
                         <div class="form-group">
-                            <label>Delay</label>
-                            <input type="text" class="form-control" name="Delay" placeholder="Not sure">
+                            <label style = "color: white">Delay Time (Minutes)</label>
+                            <input type="text" class="form-control" name="Delay" placeholder="60">
                         </div>
                         <input type="submit" value="submit" class="btn btn-default">
                     </form>
