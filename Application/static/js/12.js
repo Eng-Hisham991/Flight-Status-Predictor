@@ -1,69 +1,109 @@
-airlines = [{'YV':'Mesa Airlines', 'EV':'ExpressJet','AS':'Alaska Airlines',
-'UA':'United Airlines','YX': 'Republic Airways','AA': 'American Airlines', 
-'F9':'Fronteir Airlines','9E':'Endeavor Air','NK':'Spirit Airlines','OO':'SkyWest Airlines',
-'DL':'Delta Airlines',"B6":'JetBlue',"OH":"PSA Airlines"}]; 
+function buildMetadata(sample) {
+  d3.csv('trial1.csv').then((data) => {
+    console.log(data)
+    var metadata = data.metadata;
+    // Filter the data for the object with the desired sample number
+    var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+    var result = resultArray[0];
+    // Use d3 to select the panel with id of `#sample-metadata`
+    var PANEL = d3.select("#sample-metadata");
 
-var abbrev= [];
-var carrier = [];
+    // Use `.html("") to clear any existing metadata
+    PANEL.html("");
 
-// Iterate through each recipe object
-airlines.forEach((airline) => {
+    // Use `Object.entries` to add each key and value pair to the panel
+    // Hint: Inside the loop, you will need to use d3 to append new
+    // tags for each key-value in the metadata.
+    Object.entries(result).forEach(([key, value]) => {
+      PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+    });
 
-  // Iterate through each key and value
-  Object.entries(airline).forEach(([key, value]) => {
-    carrier.push(value)
-    abbrev.push(key)
-   });
-});
+    // BONUS: Build the Gauge Chart
+    buildGauge(result.wfreq);
+  });
+}
 
+function buildCharts(sample) {
+  d3.json('trial1.csv').then((data) => {
+    var samples = data.samples;
+    var resultArray = samples.filter(sampleObj => sampleObj.id == sample);
+    var result = resultArray[0];
 
-function onlyUnique(value, index, self) { 
-    return self.indexOf(value) === index;
-}  
+    var otu_ids = result.otu_ids;
+    var otu_labels = result.otu_labels;
+    var sample_values = result.sample_values;
 
-  
-  function initial1(){ 
+    // Build a Bubble Chart
+    var bubbleLayout = {
+      title: "Bacteria Cultures Per Sample",
+      margin: { t: 0 },
+      hovermode: "closest",
+      xaxis: { title: "OTU ID" },
+      margin: { t: 30}
+    };
+    var bubbleData = [
+      {
+        x: otu_ids,
+        y: sample_values,
+        text: otu_labels,
+        mode: "markers",
+        marker: {
+          size: sample_values,
+          color: otu_ids,
+          colorscale: "Earth"
+        }
+      }
+    ];
 
-    d3.csv("../../trial1.csv").then((data)=>{
-        console.log(data)
-        var airlines = data.map(item=>item.Airline).filter( onlyUnique ); 
-        var dropDown1 = d3.select("#dropdown1");
+    Plotly.newPlot("bubble", bubbleData, bubbleLayout);
 
+    var yticks = otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse();
+    var barData = [
+      {
+        y: yticks,
+        x: sample_values.slice(0, 10).reverse(),
+        text: otu_labels.slice(0, 10).reverse(),
+        type: "bar",
+        orientation: "h",
+      }
+    ];
 
-        carrier.forEach((sample) => {
-        
-        dropDown1
+    var barLayout = {
+      title: "Top 10 Bacteria Cultures Found",
+      margin: { t: 30, l: 150 }
+    };
+
+    Plotly.newPlot("bar", barData, barLayout);
+  });
+}
+
+function init() {
+  // Grab a reference to the dropdown select element
+  var selector = d3.select("#selDataset");
+
+  // Use the list of sample names to populate the select options
+  d3.json("samples.json").then((data) => {
+    var sampleNames = data.names;
+
+    sampleNames.forEach((sample) => {
+      selector
         .append("option")
         .text(sample)
-        .property("value", sample);  
-
-        });
-        
-        var dest_airports = data.map(item=>item.Destination_Airport).filter( onlyUnique ); 
-        var dropDown2 = d3.select("#dropdown2");
-
-        dest_airports.forEach((sample) => {
-            dropDown2
-            .append("option")
-            .text(sample)
-            .property("value", sample);   
-
-
-        });
-
-        
-        
+        .property("value", sample);
     });
-   
-         
-  };
-  
-  
-  function optionChanged(newSample) {
 
-  };
-  
+    // Use the first sample from the list to build the initial plots
+    var firstSample = sampleNames[0];
+    buildCharts(firstSample);
+    buildMetadata(firstSample);
+  });
+}
 
-  
-initial1();
-optionChanged();
+function optionChanged(newSample) {
+  // Fetch new data each time a new sample is selected
+  buildCharts(newSample);
+  buildMetadata(newSample);
+}
+
+// Initialize the dashboard
+init();
