@@ -15,7 +15,7 @@ The visualizations were done on tableau, posted on tableau public, and incorpora
 
 ## Flask App 
 
-The Flask app is in direct communication with model/javascript/HTML to predict the outcome based on the user input into the website. 
+The Flask app is in direct communication with the model & the JavaScript file and the HTML file to predict the outcome based on the user input into the website. 
 
 
 
