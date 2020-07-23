@@ -45,19 +45,19 @@
                         <div class="form-group">
                             <!-- <input type="text" class="form-control" name="AIRLINEx" placeholder="DELTA"> -->
                             <label>Airline</label>
-                            <select id="selDataset" name="AIRLINE">
-                                {% for line in lines %}!
-                                <option value="{{ line }}">{{ line }}</option> 
-                                {% endfor %}
+                            <select id="selDataset" onchange="optionChanged(this.value)" name="AIRLINE">
+                                <!-- {% for line in lines %}! -->
+                                <!-- <option value="{{ line }}">{{ line }}</option>  -->
+                                <!-- {% endfor %} -->
                               </select>
                         </div>
                         <div class="form-group">
                             <!-- <input type="text" class="form-control" name="DEST_AIRPORTx" placeholder="JFK"> -->
                             <label>Dest. Airport</label>
-                            <select id="selDataset1" name="Dest. Airport">
-                                {% for cat in cats %}
-                                <option value="{{ cat }}">{{ cat }}</option> 
-                                {% endfor %}
+                            <select id="selDataset1" onchange="optionChanged(this.value)" name="Dest. Airport">
+                                <!-- {% for cat in cats %} -->
+                                <!-- <option value="{{ cat }}">{{ cat }}</option>  -->
+                                <!-- {% endfor %} -->
                               </select>
                         </div>
                         <div class="form-group">
@@ -112,6 +112,6 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script type = "text/javascript"  src="{{ url_for('static', filename = 'js/12.js') }}"></script>
+        <script type = "text/javascript"  src="{{ url_for('static', filename = 'js/Final.js') }}"></script>
     </body>
 </html>
