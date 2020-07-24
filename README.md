@@ -29,7 +29,7 @@ Based on accuracy, the Random Forest model was selected for this work.
 ## Visualizations 
 
 The visualizations were done on tableau, posted on tableau public, and incorporated into the HTML. 
-There were four visualizations in total. The visuals showed the different kinds of delays experienced specifically here in the United States, the airports with the most delays, and the airlines that are mostly affected by the delays.
+There were four visualizations in total. The visuals compared the different kinds of delays experienced specifically here in the United States, the airports with the most delays, and the airlines that are mostly affected by the delays.
 
 ## Flask App 
 
