@@ -11,12 +11,12 @@ airline, the destination city, the delay, the month, and the year leaving IAH ai
 ## Steps 
 
 A web app used to predict flight status at IAH airport in Houston, TX.
-•	Data was downloaded from: https://www.transtats.bts.gov/DL_SelectFields.asp
-•	We used Python (in Jupyter Notebook) to implement Data cleansing, Random Forest Classifier within Scikit-Learn package.
-•	We used TABLEAU to create visualizations.
-•	We successfully got cleaned data consists of more than 80 000 rows using to feed our training model.
-•	Random Forest Classifier Model scores more than 92 % on the testing data
-•	Data and model were transported using Flask to a font end prepared with html, bootstrap, css and JavaScript.
+  •	Data was downloaded from: https://www.transtats.bts.gov/DL_SelectFields.asp
+  •	We used Python (in Jupyter Notebook) to implement Data cleansing, Random Forest Classifier within Scikit-Learn package.
+  •	We used TABLEAU to create visualizations.
+  •	We successfully got cleaned data consists of more than 80 000 rows using to feed our training model.
+  •	Random Forest Classifier Model scores more than 92 % on the testing data
+  •	Data and model were transported using Flask to a font end prepared with html, bootstrap, css and JavaScript.
 
 ## Tools/Packages Used
 •	Scikit Learn (for models LinearSVC, Random Forest, etc..)
