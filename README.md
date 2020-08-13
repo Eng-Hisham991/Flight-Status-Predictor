@@ -5,8 +5,27 @@
 
 ## Background 
 
-How many flights are delayed/cancelled each year? We built a classifier using machine learning techniques that predicts whether your flight will be delayed or normal based on the 
-airline, the destination city, the delay, the month, and the year leaving IAH in houston. 
+How many flights are delayed/cancelled or be on time each year? We built a classifier model using machine learning techniques that predicts whether your flight will be delayed or normal based on the 
+airline, the destination city, the delay, the month, and the year leaving IAH airport in Houston, TX. 
+
+## Steps 
+
+A web app used to predict flight status at IAH airport in Houston, TX.
+•	Data was downloaded from: https://www.transtats.bts.gov/DL_SelectFields.asp
+•	We used Python (in Jupyter Notebook) to implement Data cleansing, Random Forest Classifier within Scikit-Learn package.
+•	We used TABLEAU to create visualizations.
+•	We successfully got cleaned data consists of more than 80 000 rows using to feed our training model.
+•	Random Forest Classifier Model scores more than 92 % on the testing data
+•	Data and model were transported using Flask to a font end prepared with html, bootstrap, css and JavaScript.
+
+## Tools/Packages Used
+•	Scikit Learn (for models LinearSVC, Random Forest, etc..)
+•	Tensorflow.keras  (for transforming data)
+•	Pandas
+•	Numpy
+•	Matplotlib (and Seaborn)
+•	Tableau (For Visualization)
+•	Flask (For creation web application)
 
 ## Model Details 
 
@@ -34,6 +53,11 @@ There were four visualizations in total. The visuals compared the different kind
 ## Flask App 
 
 The Flask app is in direct communication with the model & the JavaScript file and the HTML file to predict the outcome based on the user input into the website. 
+
+## How to use:
+•	Insert numbers on the boxes, choose Destination airport and destination city then click submit, the model will predict the most likely flight status at IAH airport in Houston, TX. 
+App is available on AWS: https:// Enjoy!
+
 
 
 
