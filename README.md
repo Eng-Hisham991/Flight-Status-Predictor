@@ -11,36 +11,54 @@ airline, the destination city, the delay, the month, and the year leaving IAH ai
 ## Steps 
 
 A web app used to predict flight status at IAH airport in Houston, TX.
-  •	Data was downloaded from: https://www.transtats.bts.gov/DL_SelectFields.asp
-  •	We used Python (in Jupyter Notebook) to implement Data cleansing, Random Forest Classifier within Scikit-Learn package.
-  •	We used TABLEAU to create visualizations.
-  •	We successfully got cleaned data consists of more than 80 000 rows using to feed our training model.
-  •	Random Forest Classifier Model scores more than 92 % on the testing data
-  •	Data and model were transported using Flask to a font end prepared with html, bootstrap, css and JavaScript.
+
+  -	Data was downloaded from: https://www.transtats.bts.gov/DL_SelectFields.asp
+  
+  -	We used Python (in Jupyter Notebook) to implement Data cleansing, Random Forest Classifier within Scikit-Learn package.
+  
+  -	We used TABLEAU to create visualizations.
+  
+  -	We successfully got cleaned data consists of more than 80 000 rows using to feed our training model.
+  
+  -	Random Forest Classifier Model scores more than 92 % on the testing data.
+  
+  -	Data and model were transported using Flask to a font end prepared with html, bootstrap, css and JavaScript.
 
 ## Tools/Packages Used
-•	Scikit Learn (for models LinearSVC, Random Forest, etc..)
-•	Tensorflow.keras  (for transforming data)
-•	Pandas
-•	Numpy
-•	Matplotlib (and Seaborn)
-•	Tableau (For Visualization)
-•	Flask (For creation web application)
+
+  -	Scikit Learn (for models LinearSVC, Random Forest, etc..).
+
+  - Tensorflow.keras  (for transforming data).
+
+  -	Pandas.
+
+  -	Numpy.
+
+  -	Tableau (For Visualization).
+
+  -	Flask (For creation web application)
+
 
 ## Model Details 
 
 The process started, after getting cleaned data, to choose the best model to use. The train, test and tuning done on the following models:
 
  - Logistic Regression.
+ 
  - K Nearest Neighbors.
+ 
  - Random Forest.
+ 
  - Support Vector Machine.
 
 All the models were tested for accuracy which is follow for each:
 
  - Logistic Regression : ~ 91.5%
+ 
  - K Nearest Neighbors: 92.3%
+ 
  - Random Forest: 92.5%
+ 
  - Support Vector Machine: 70.8%
 
 Based on accuracy, the Random Forest model was selected for this work.
@@ -55,7 +73,7 @@ There were four visualizations in total. The visuals compared the different kind
 The Flask app is in direct communication with the model & the JavaScript file and the HTML file to predict the outcome based on the user input into the website. 
 
 ## How to use:
-•	Insert numbers on the boxes, choose Destination airport and destination city then click submit, the model will predict the most likely flight status at IAH airport in Houston, TX. 
+  -	Insert numbers on the boxes, choose Destination airport and destination city then click submit, the model will predict the most likely flight status at IAH airport in Houston, TX. 
 App is available on AWS: https:// Enjoy!
 
 
