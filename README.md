@@ -74,7 +74,7 @@ The Flask app is in direct communication with the model & the JavaScript file an
 
 ## How to use:
   -	Insert numbers on the boxes, choose Destination airport and destination city then click submit, the model will predict the most likely flight status at IAH airport in Houston, TX. 
-App is available on AWS: https:// Enjoy!
+App is available on AWS: http://airlinesanalysis-env.eba-bpdk2f5r.us-east-1.elasticbeanstalk.com/ Enjoy!
 
  Hisham (@Eng-Hisham991), Abdullah (@Abdullah101298) and Mercy (@mercymuigai)
 
